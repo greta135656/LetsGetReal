@@ -69,14 +69,14 @@ int gcd = gcd(numerator, denominator);
  public RationalNumber multiply(RationalNumber other){
      RationalNumber result = new RationalNumber((this.numerator * other.getNumerator()),
          ((this.denominator) * other.getDenominator()));
-reduce();
+result.reduce();
   return result;
 }
 
 public RationalNumber divide(RationalNumber other){
      RationalNumber result = new RationalNumber((this.numerator * other.getNumerator()),
          ((this.denominator) * other.getNumerator()));
-   reduce();
+   result.reduce();
   return result;
 }
 
@@ -86,7 +86,7 @@ int deno3 = (denominator * other.getDenominator()) /
 int nume3 = (this.numerator)*(deno3/this.denominator) +
             (other.numerator) * (deno3/other.getDenominator());
 RationalNumber result = new RationalNumber(nume3, deno3);
-   reduce();
+   result.reduce();
 return result ;
 
 
@@ -100,7 +100,7 @@ int nume3 = (this.numerator)*(deno3/this.denominator) -
             (other.numerator) * (deno3/other.getDenominator());
 
 RationalNumber result = new RationalNumber(nume3, deno3);
-   reduce();
+   result.reduce();
 return result ;
 }
 }
