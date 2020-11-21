@@ -6,6 +6,7 @@ public class RationalNumber extends RealNumber {
 super(deno==0? 0:nume/deno);
 numerator=nume;
 denominator=deno;
+reduce();
 
   }
 
@@ -33,6 +34,8 @@ public int getDenominator(){
  }
 
  public boolean equals(RationalNumber other){
+reduce();
+other.reduce();
  if (this.numerator == other.getNumerator() && 
      this.denominator == other.getDenominator() )
    return true;
