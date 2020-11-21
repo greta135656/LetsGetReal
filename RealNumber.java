@@ -16,9 +16,11 @@ public class RealNumber{
   public boolean equals(RealNumber other){
   if (value == 0 && other.getValue() == 0)
   return true;
-  if (value != 0 || other.getValue() != 0)
+  if ((value == 0 && other.getValue() != 0) ||
+      (value != 0 && other.getValue() == 0))
   return false;
-  {if (Math.abs(value/other.getValue()) <= 0.00001)
+  {if (Math.abs(value/other.getValue()) <= 1.00001 && 
+       Math.abs(value/other.getValue()) >= 0.99999)
    return true;
    return false;}
  }
@@ -43,4 +45,3 @@ public RealNumber divide(RealNumber other){
     return result;
 }
 }
-
