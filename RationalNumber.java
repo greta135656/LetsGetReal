@@ -1,15 +1,21 @@
 public class RationalNumber extends RealNumber {
   private int numerator, denominator;
-
+  
   public RationalNumber(int nume, int deno){
 
- super(nume/deno);
+super(deno==0? 0:nume/deno);
+numerator=nume;
+denominator=deno;
 
   }
 
   public double getValue(){
-         reduce();
-  return (numerator/denominator);
+if(this.denominator == 0)
+{return 0;}
+double d=denominator; 
+double n=numerator;   
+
+  return (n/d);
 }
 
 public int getNumerator(){
@@ -35,18 +41,20 @@ public int getDenominator(){
 
 
  public String toString(){
-  return "getNumerator()" + "/" + "getDenominator";
+if(this.denominator == 0)
+{return "0/1";}
+  return numerator + "/" + denominator;
 }
 
 
 private static int gcd(int a, int b){
-int gcd = 0;
-for(int i = 1; i <= a && i <= b; i++)
+int gcd1 = 1;
+for(int i = 2; i <= a && i <= b; i++)
 {
     if(a%i==0 && b%i==0)
-         gcd = i;
+         gcd1 = i;
 }
-return gcd;
+return gcd1;
 }
 
 
