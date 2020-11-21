@@ -16,9 +16,11 @@ public class RealNumber{
   public boolean equals(RealNumber other){
   if (value == 0 && other.getValue() == 0)
   return true;
-  if (Math.abs(value/other.getValue()) <= 0.00001)
+  if (value != 0 || other.getValue() != 0)
+  return false;
+  {if (Math.abs(value/other.getValue()) <= 0.00001)
    return true;
-   return false;
+   return false;}
  }
 
  public RealNumber add(RealNumber other){
