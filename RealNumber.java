@@ -14,16 +14,15 @@ public class RealNumber{
   }
 
   public boolean equals(RealNumber other){
-  if (value == 0 && other.getValue() == 0)
-  return true;
-  if ((value == 0 && other.getValue() != 0) ||
-      (value != 0 && other.getValue() == 0))
-  return false;
-  {if (Math.abs(value/other.getValue()) <= 1.00001 && 
-       Math.abs(value/other.getValue()) >= 0.99999)
-   return true;
-   return false;}
- }
+    double val = getValue();
+    double otherval = other.getValue();
+    if (val == 0 || otherval == 0){
+      return (val == 0 && otherval == 0);
+    }
+    else{
+      return Math.abs((val - otherval)/val) <= (0.00001 * val);
+    }
+  }
 
  public RealNumber add(RealNumber other){
       RealNumber result = new RealNumber(value + other.getValue());
