@@ -2,12 +2,20 @@ public class RationalNumber extends RealNumber {
   private int numerator, denominator;
   
   public RationalNumber(int nume, int deno){
-
-super(deno==0? 0:nume/deno);
-numerator=nume;
-denominator=deno;
-reduce();
-
+  super(0.0);
+  if (deno == 0 || nume == 0) {
+  numerator = 0;
+  denominator = 1;
+  }
+  else{
+  numerator = nume;
+  denominator = deno;
+  reduce();
+  }
+  if (denominator<0){
+  numerator = numerator * -1;
+  denominator = denominator * -1;
+  }
   }
 
   public double getValue(){
@@ -15,7 +23,9 @@ if(this.denominator == 0)
 {return 0;}
 double d=denominator; 
 double n=numerator;   
-
+  n=n/gcd(numerator, denominator);
+  d=d/gcd(numerator, denominator);
+  reduce();
   return (n/d);
 }
 
@@ -46,7 +56,7 @@ other.reduce();
  public String toString(){
 if(this.denominator == 0)
 {return "0/1";}
-  return numerator + "/" + denominator;
+  return "" + numerator + "/" + denominator;
 }
 
 
@@ -102,7 +112,7 @@ int deno3 = (denominator * other.getDenominator()) /
 int nume3 = (this.numerator)*(deno3/this.denominator) -
             (other.numerator) * (deno3/other.getDenominator());
 
-RationalNumber result = new RationalNumber(nume3/gcd(nume3, deno3), deno3/gcd(nume3, deno3));
+RationalNumber result = new RationalNumber(nume3, deno3);
    result.reduce();
 return result ;
 }
