@@ -37,11 +37,14 @@ public int getDenominator(){
    return denominator;
  }
 
- public RationalNumber reciprocal(){
-    RationalNumber result = new RationalNumber (denominator, numerator);
-   return result;
-
- }
+  public RationalNumber reciprocal(){
+    int num = denominator;
+    int den = numerator;
+    numerator = num;
+    denominator = den;
+    RationalNumber ans = new RationalNumber (numerator, denominator);
+    return ans;
+  }
 
  public boolean equals(RationalNumber other){
 reduce();
@@ -62,9 +65,9 @@ if(this.denominator == 0)
 
 private static int gcd(int a, int b){
 int gcd1 = 1;
-for(int i = 2; i <= a && i <= b; i++)
+for(int i = 2; i <= Math.abs(a) && i <= Math.abs(b); i++)
 {
-    if(a%i==0 && b%i==0)
+    if(Math.abs(a)%i==0 && Math.abs(b)%i==0)
          gcd1 = i;
 }
 return gcd1;
