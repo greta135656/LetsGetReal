@@ -1,5 +1,5 @@
-public class RealNumber{
-  private double value;
+public class RealNumber extends Number{
+	private double value;
 
   public RealNumber(double v){
     value = v;
