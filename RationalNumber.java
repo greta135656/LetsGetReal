@@ -1,4 +1,4 @@
-public class RationalNumber extends RealNumber {
+public class RationalNumber extends Number {
   private int numerator, denominator;
   
   public RationalNumber(int nume, int deno){
@@ -57,9 +57,9 @@ other.reduce();
 
 
  public String toString(){
-if(this.denominator == 0)
-{return "0/1";}
-  return "" + numerator + "/" + denominator;
+if(denominator == 1)
+return "" + numerator;
+return numerator + "/" + denominator;
 }
 
 
