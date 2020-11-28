@@ -10,3 +10,18 @@ public abstract class Number {
 			return 1;
 		}
 	}
+	
+	
+  public boolean equals(Number other){
+		if(getValue() == 0 && other.getValue() == 0){
+			return true;
+		}
+    if (getValue() == 0 && other.getValue() != 0){
+    return false;
+    }
+    if (getValue() != 0 && other.getValue() == 0){
+    return false;
+    }
+		return Math.abs((getValue() - other.getValue())/getValue()) < 0.00001;
+	
+}}
