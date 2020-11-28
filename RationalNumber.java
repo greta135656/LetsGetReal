@@ -2,20 +2,18 @@ public class RationalNumber extends Number {
   private int numerator, denominator;
   
   public RationalNumber(int nume, int deno){
-  super(0.0);
-  if (deno == 0 || nume == 0) {
+if(deno==0){
   numerator = 0;
   denominator = 1;
-  }
-  else{
+} 
+ else{
   numerator = nume;
-  denominator = deno;
-  reduce();
-  }
-  if (denominator<0){
-  numerator = numerator * -1;
-  denominator = denominator * -1;
-  }
+  denominator = deno;	
+}	
+if (deno < 0){
+ numerator = nume * -1 ;
+ denominator = deno * -1;}
+reduce();
   }
 
   public double getValue(){
